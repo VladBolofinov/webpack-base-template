@@ -1,5 +1,3 @@
-# dependencies
 /node_modules
-
-# production
 /build
+/package-lock.json
