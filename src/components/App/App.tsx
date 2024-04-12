@@ -7,9 +7,13 @@ import imgPng from '@/assets/imgpng.png';
 import imgJpg from '@/assets/imgjpg.jpg';
 import IconSvg from '@/assets/imgsvg.svg';
 
+function todo(a:number) {
+    console.log(a);
+}
 export const App = () => {
         const [count, setCount] = useState<number>(0);
         const increment = () => setCount(prev => prev + 1 );
+        todo(5);
     return (
         <div>
             <img width={125} height={125} src={imgPng} alt="imgPNG"/>

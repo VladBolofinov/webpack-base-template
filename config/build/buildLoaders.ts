@@ -45,10 +45,20 @@ export function buildLoaders(options: BuildOptions):ModuleOptions['rules'] {
             "sass-loader"
         ],
     }
+
     const tsLoader = {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-        };
+        //ts-loader умеет работать с JSX
+        //если б мы не использовали тайпскрипт: нужен был бы babel-loader
+        exclude: /node_modules/,
+        test: /\.tsx?$/,
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: isDev
+                }
+            }
+        ]
+    };
     return [scssLoader, tsLoader, assetLoader, svgrLoader]
 }
