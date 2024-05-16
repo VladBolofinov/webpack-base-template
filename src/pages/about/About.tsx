@@ -1,6 +1,6 @@
-import React from 'react';
+import { type FC } from 'react';
 import './About.scss';
-const About = () => {
+const About: FC = () => {
     return (
         <h1 className="test">
             About

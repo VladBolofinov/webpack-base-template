@@ -1,14 +1,14 @@
-import webpack from 'webpack';
-import {buildWebpack} from "./config/build/buildWebpack";
-import {BuildMode, BuildPaths} from "./config/build/types/types";
-import path from "path";
+import type webpack from 'webpack';
+import { buildWebpack } from './config/build/buildWebpack';
+import { type BuildMode, type BuildPaths } from './config/build/types/types';
+import path from 'path';
 
 interface EnvVariables {
     mode: BuildMode;
     analyzer?: boolean;
     port: number;
 }
-export default (env:EnvVariables) => {
+export default (env: EnvVariables): webpack.Configuration => {
     const paths: BuildPaths = {
         output: path.resolve(__dirname, 'build'),
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -21,7 +21,7 @@ export default (env:EnvVariables) => {
         port: env.port ?? 3000,
         mode: env.mode ?? 'development',
         paths,
-        analyzer: env.analyzer   // npm run build:prod -- --env analyzer=true
+        analyzer: env.analyzer // npm run build:prod -- --env analyzer=true
     })
     return config;
 }

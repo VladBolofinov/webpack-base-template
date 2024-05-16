@@ -1,12 +1,12 @@
-import {ModuleOptions} from 'webpack';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/types";
-import ReactRefreshTypeScript from "react-refresh-typescript";
-export function buildLoaders(options: BuildOptions):ModuleOptions['rules'] {
+import { type ModuleOptions } from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { type BuildOptions } from './types/types';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
+export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
     const isDev = options.mode === 'development';
     const assetLoader = {
         test: /\.(png|jpg|jpeg|gif|woff2|woff)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
     }
     const svgrLoader = {
         test: /\.svg$/i,
@@ -20,31 +20,31 @@ export function buildLoaders(options: BuildOptions):ModuleOptions['rules'] {
                             {
                                 name: 'convertColors',
                                 params: {
-                                    currentColor: true,
+                                    currentColor: true
                                 }
                             }
                         ]
                     }
                 }
             }
-        ],
+        ]
     }
     const cssLoaderWithModules = {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
             modules: {
                 auto: (resPath: string) => Boolean(resPath.includes('.module')),
                 localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
-            },
-        },
+            }
+        }
     }
     const scssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             cssLoaderWithModules,
-            "sass-loader"
-        ],
+            'sass-loader'
+        ]
     }
 
     const tsLoader = {
@@ -57,7 +57,7 @@ export function buildLoaders(options: BuildOptions):ModuleOptions['rules'] {
                 loader: 'ts-loader',
                 options: {
                     getCustomTransformers: () => ({
-                        before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+                        before: [isDev && ReactRefreshTypeScript()].filter(Boolean)
                     }),
                     transpileOnly: isDev
                 }

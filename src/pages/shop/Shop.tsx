@@ -1,10 +1,16 @@
-import React from 'react';
+import { type FC } from 'react';
 
-const Shop = () => {
+const Shop: FC = () => {
     return (
-        <h1>
-            Shop
-        </h1>
+        <div>
+            <button
+                type="submit">
+                OKKKKKKKKKKKK
+            </button>
+            <h1>
+                Shop
+            </h1>
+        </div>
     );
 };
 
