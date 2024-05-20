@@ -5,8 +5,7 @@ const Shop: FC = () => {
     return (
         <div>
             <BugButton/>
-            <button type="submit">OKKKKKKK
-            </button>
+            <button type="submit">OKKKKKKK</button>
             <h1>Shop</h1>
         </div>
     );
