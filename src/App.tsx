@@ -1,4 +1,4 @@
-import React, { type FC, Suspense, useState } from 'react';
+import { type FC, Suspense, useState } from 'react';
 import './styles/index.scss';
 import { Link, Route, Routes } from 'react-router-dom';
 import { LazyAbout } from '@/pages/about/About.lazy';

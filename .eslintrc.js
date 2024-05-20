@@ -35,6 +35,8 @@ module.exports = {
         "spaced-comment": 0,
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/prefer-nullish-coalescing": 0,
-        "@typescript-eslint/strict-boolean-expressions": 0
+        "@typescript-eslint/strict-boolean-expressions": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "n/handle-callback-err": 0
     }
 }
