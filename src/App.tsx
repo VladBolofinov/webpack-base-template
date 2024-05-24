@@ -19,7 +19,7 @@ export const App: FC = () => {
             <div><IconSvg width={125} height={125}/></div>
             <h1>{count}</h1>
             <button onClick={increment}>inc</button>
-            <Suspense fallback={<div>Loading.....</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path={'/about'} element={<LazyAbout/>}/>
                     <Route path={'/'} element={<LazyShop/>}/>
