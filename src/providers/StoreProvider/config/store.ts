@@ -1,6 +1,7 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
 import { type StateSchema } from '@/providers/StoreProvider/config/StateSchema';
-import { counterReducer } from '@/components/Counter/model/slice/counterSlice';
+import { $api } from '@/api/api';
+import { counterReducer } from '@/redux/counterModel/slice/counterSlice';
 
 export function createReduxStore (initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
@@ -9,7 +10,14 @@ export function createReduxStore (initialState?: StateSchema) {
 
     return configureStore({
         reducer: rootReducers,
-        preloadedState: initialState
+        preloadedState: initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: $api
+                }
+            }
+        })
     })
 }
 

@@ -1,4 +1,4 @@
-import { type CounterSchema } from '@/components/Counter/model/types/counterSchema';
+import { type CounterSchema } from '@/redux/counterModel/types/counterSchema';
 
 export interface StateSchema {
     counter: CounterSchema

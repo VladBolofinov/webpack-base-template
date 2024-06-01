@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { counterActions } from '@/components/Counter/model/slice/counterSlice';
-import { getCounterValue } from '@/components/Counter/model/selectors/getCounterValue/getCounterValue';
 import { useAppDispatch } from '@/hooks/useAppDispatch/useAppDispatch';
+import { getCounterValue } from '@/redux/counterModel/selectors/getCounterValue/getCounterValue';
+import { counterActions } from '@/redux/counterModel/slice/counterSlice';
 
 export const Counter = () => {
     const dispatch = useAppDispatch();
