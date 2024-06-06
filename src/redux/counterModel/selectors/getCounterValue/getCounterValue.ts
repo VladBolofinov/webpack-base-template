@@ -4,5 +4,5 @@ import { type CounterSchema } from '@/redux/counterModel/types/counterSchema';
 
 export const getCounterValue = createSelector(
     getCounter,
-    (counter: CounterSchema) => counter?.value
+    (counter: CounterSchema | undefined) => counter?.value
 )

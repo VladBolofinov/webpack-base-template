@@ -38,6 +38,7 @@ module.exports = {
         "@typescript-eslint/prefer-nullish-coalescing": 0,
         "@typescript-eslint/strict-boolean-expressions": 0,
         "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
         "n/handle-callback-err": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error"

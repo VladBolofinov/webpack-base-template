@@ -19,7 +19,7 @@ const Shop: FC = () => {
     }, [dispatch])
 
     return (
-        <DynamicModuleLoader reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
             <BugButton/>
             <button type="submit">OKKKKKKK</button>
             <h1>Shop</h1>

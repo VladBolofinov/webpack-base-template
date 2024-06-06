@@ -1,19 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { type ThunkConfig } from '@/providers/StoreProvider/config/StateSchema';
+import { counterActions } from '@/redux/counterModel/slice/counterSlice';
 
-export const fetchAuthData = createAsyncThunk< undefined, undefined, { rejectValue: string }>(
+export const fetchAuthData = createAsyncThunk< void, void, ThunkConfig<string>>(
     'auth/fetchAuthData',
-    async (arg, thunkAPI) => {
+    async (_, thunkAPI) => {
+        const { extra, dispatch, rejectWithValue } = thunkAPI;
         try {
-            const response = await axios.get('https://my-proxy-server-tmdb.onrender.com/3/authentication');
+            const response = await extra.api.get('/authentication');
             if (!response.data) {
                 throw new Error();
             }
             console.log(response.data);
+            dispatch(counterActions.increment());
+            // @ts-expect-error
+            extra.navigate('/about');
             return response.data;
         } catch (e) {
             console.log(e);
-            return thunkAPI.rejectWithValue('error');
+            return rejectWithValue('error');
         }
     }
 )
