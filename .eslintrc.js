@@ -40,6 +40,7 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/no-non-null-assertion": 0,
         "@typescript-eslint/no-invalid-void-type": 0,
+        "@typescript-eslint/no-dynamic-delete": 0,
         "n/handle-callback-err": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error"

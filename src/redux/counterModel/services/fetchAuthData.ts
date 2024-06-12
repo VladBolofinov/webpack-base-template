@@ -20,7 +20,7 @@ export const fetchAuthData = createAsyncThunk< void, void, ThunkConfig<string>>(
             //console.log(`Это выводит стейт после запроса на серве ${state}`);
             console.log(response.data);
             dispatch(counterActions.increment());
-            // @ts-expect-error
+            // @ts-expect-error soon will be fix
             extra.navigate('/about');
             return response.data;
         } catch (e) {

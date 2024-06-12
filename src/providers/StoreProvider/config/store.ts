@@ -31,7 +31,7 @@ export function createReduxStore (
         })
     })
 
-    // @ts-expect-error
+    // @ts-expect-error soon will be fix
     store.reducerManager = reducerManager;
 
     return store;
