@@ -31,6 +31,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                 })
             }
         }
+        //eslint-disable-next-line
     }, []);
 
     return (
