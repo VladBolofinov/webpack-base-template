@@ -5,12 +5,19 @@ import { counterActions } from '@/redux/counterModel/slice/counterSlice';
 export const fetchAuthData = createAsyncThunk< void, void, ThunkConfig<string>>(
     'auth/fetchAuthData',
     async (_, thunkAPI) => {
-        const { extra, dispatch, rejectWithValue } = thunkAPI;
+        const {
+            extra,
+            dispatch,
+            rejectWithValue
+            //getState
+        } = thunkAPI;
         try {
             const response = await extra.api.get('/authentication');
             if (!response.data) {
                 throw new Error();
             }
+            //const state = getState();
+            //console.log(`Это выводит стейт после запроса на серве ${state}`);
             console.log(response.data);
             dispatch(counterActions.increment());
             // @ts-expect-error
