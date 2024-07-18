@@ -4,12 +4,10 @@ import { type StateSchema, type ThunkExtraArg } from '@/providers/StoreProvider/
 import { testReducer } from '@/redux/testModel/slice/testSlice';
 import { createReducerManager } from '@/providers/StoreProvider/config/reducerManager';
 import { $api } from '@/api/api';
-import { type To, type NavigateOptions } from 'react-router';
 import { type CombinedState } from 'redux';
 
 export function createReduxStore (
-    initialState?: StateSchema,
-    navigate?: (to: To, options?: NavigateOptions) => void
+    initialState?: StateSchema
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         //counter: counterReducer,
@@ -18,8 +16,7 @@ export function createReduxStore (
 
     const reducerManager = createReducerManager(rootReducers);
     const extraArg: ThunkExtraArg = {
-        api: $api,
-        navigate
+        api: $api
     }
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
